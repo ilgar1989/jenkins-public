@@ -1,18 +1,17 @@
 pipeline {
 agent any 
 
-stages {
-
+  stages {
+  
 stage('Chekout') {
 steps {
-       git branch: 'main', url: 'git@github.com:ilgar1989/jenkins-public.git'
+git branch: 'main', url: 'git@github.com:ilgar1989/jenkins-public.git'
 
   }
 }
 
-stages {
-  stage('TFInint') {
 
+  stage('TFInint') {
    steps {
      sh "terraform init"
      
@@ -32,7 +31,6 @@ stages {
        }
      }
     }
-   }
-    
+}
 
    
