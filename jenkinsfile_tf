@@ -1,0 +1,30 @@
+pipeline {
+agen any 
+
+stages {
+stage('Chekout') {
+steps {
+git branch: 'main', url:  'git@github.com:ilgar1989/jenkins-public.git'
+}
+}
+
+stages {
+  stage('TFInint') {
+
+   steps {
+     sh "terraform init"
+   }
+   }
+   stage('TFPlan') {
+   steps {
+   sh "terraform plan"
+   }
+   }
+   stage('TFApply') {
+   steps {
+   sh 'terraform apply -auto-approve"
+   }
+   }
+   }
+   }
+   
